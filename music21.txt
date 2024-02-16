@@ -1,0 +1,17 @@
+from music21 import *
+
+# Define a simple melody
+notes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5"]
+melody = [note.Note(n) for n in notes]
+
+# Create a stream and add the melody
+stream1 = stream.Stream()
+for n in melody:
+    stream1.append(n)
+
+# Add a time signature and key signature
+stream1.insert(0, meter.TimeSignature('4/4'))
+stream1.insert(0, key.KeySignature(0))
+
+# Play the melody
+stream1.show('midi')
